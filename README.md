@@ -42,13 +42,13 @@ Key results include:
 
 ## Highlighted Visualizations
 **Feature Importance:**
-![Feature Importance](images/feature_importance.png)
+![Feature Importance](Notebooks/feature_importance.png)
 
 **Volume Change Boxplot:**
-![Volume Boxplot](images/volume_boxplot.png)
+![Volume Boxplot](Notebooks/volume_boxplot.png)
 
 **Volatility Trend (Monthly):**
-![Volatility Trend](images/volatility_trend.png)
+![Volatility Trend](Notebooks/volatility_trend.png)
 
 ## Results & Key Insights
 - **Gradient Boosting** with random split performed best (59.03% accuracy)
