@@ -58,14 +58,13 @@ Key results include:
 - Scenario simulation showed high potential return with modest accuracy
 
 ## Key Deliverables
-- Jupyter Notebook: `notebooks/Group_Project_Stock_Market_Signals_Team_12B.ipynb`
+- Jupyter Notebook: `Notebooks/Stock_Market_Signal_Prediction_Team_12B.ipynb`
 - Final project report (PDF)
-- Visuals and scenario analysis summaries
 
 ## What I Learned
 - Tree-based models are effective for technical signal classification but have clear limitations in financial time-series
 - Predicting stock returns using classification is inherently difficult due to market noise, data biases, and unpredictability
-- I learned that models like Gradient Boosting are not robust for capturing temporal patterns — incorporating time-aware models like LSTM may lead to better results
+- Models like Gradient Boosting are not robust for capturing temporal patterns — incorporating time-aware models like LSTM may lead to better results
 - Broader variables (macroeconomic, fundamental, and news data) are important but were not included in this version
 
 ## What I Plan to Improve
@@ -74,4 +73,4 @@ Key results include:
 - Experiment with LSTM and RNN for sequential pattern recognition in time-series
 
 ## About Me
-I’m Vy Nguyen and I’m currently pursuing my Master of Science in Business Analytics at UC Irvine. I’m passionate about analytics, investment research, and financial modeling. Connect with me on [LinkedIn](https://www.linkedin.com/in/vy-ngoc-lan-nguyen).
+Hi, I’m Vy Nguyen and I’m currently pursuing my MS in Business Analytics at UC Irvine. I’m passionate about data analytics in Finance and Investment. Connect with me on [LinkedIn](https://www.linkedin.com/in/vy-ngoc-lan-nguyen).
