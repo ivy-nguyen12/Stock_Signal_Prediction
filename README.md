@@ -15,7 +15,7 @@ Key results include:
 - **Source:** yfinance Python library  
 - **Scope:** 14+ years of Tesla (TSLA) daily data (2009–2023)  
 - **Size:** 3,632 records (reduced to 3,577 after preprocessing)  
-- **Key Features:** MA Ratio, RSI, Volatility, Volume Change, Day of Week, and Signal (target)  
+- **Target Variable:** Signal (1: future return exceeds a specified threshold, 0: otherwise)
 
 ### 📋 Data Dictionary
 
