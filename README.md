@@ -1,15 +1,19 @@
-
 # Stock Market Signal Prediction
 
 ## Overview
-This project explores whether machine learning can support better investment decisions by predicting short-term stock price movements. By analyzing over 14 years of Tesla (TSLA) daily stock data, we developed a binary classifier to identify "Up Opportunities" — days when stock returns are likely to exceed a predefined threshold. The ultimate goal is to support retail investors in improving market timing strategies.
+This project explores whether machine learning can support better investment decisions by predicting short-term stock price movements. By analyzing over 14 years of Tesla (TSLA) daily stock data, we developed a binary classifier to identify "Up Opportunities" — days when stock returns are likely to exceed a predefined threshold. The ultimate goal is to support retail investors in improving market timing strategies and managing downside risk.
 
 Prepared by: Vy Nguyen, Dennis Wu, Kenjee Koh, Hsiang-Han Huang, Becky Wang
 
 Key results include:
-- Gradient Boosting model achieved 59.03% accuracy on unseen data
-- Feature importance analysis showed MA Ratio, Volatility, and RSI were key predictors
+- Gradient Boosting model achieved 59.03% accuracy on unseen data (random split)
+- Final model showed 36% precision for Class 1 (up opportunities), supporting better downside risk control
+- Feature importance analysis revealed MA Ratio, Volatility, and RSI as top predictors
 - A scenario simulation projected a 393% annual return under specific trading assumptions
+
+> **Strategic Insight:** In volatile markets, avoiding poor trades can be more valuable than aggressively chasing gains. Our model prioritizes conservative entry signals, helping investors identify when **not** to trade as much as when to trade.
+
+---
 
 ## Dataset
 - **Source:** yfinance Python library  
@@ -28,12 +32,13 @@ Key results include:
 | RSI (Relative Strength Index) | Measures the magnitude of price gains vs losses over 14-day window    | Continuous    |
 | Day_of_Week       | Day extracted from date index, converted to dummy variables                | Categorical   |
 
+---
 
 ## Tools & Methodology Overview
 **Languages and Libraries:** Python (pandas, numpy, scikit-learn, matplotlib, seaborn)
 
 ### Data Processing:
-- Downloaded historical TSLA data using `yfinance` (3632 records)
+- Downloaded historical TSLA data using `yfinance`
 - Engineered 6 technical indicators: MA Ratio, RSI, Volatility, Volume Change, Price Trend, and Day of Week
 - Created a binary target variable (`Signal`) to classify "Up Opportunity" days
 
@@ -52,7 +57,10 @@ Key results include:
 - Feature importance analysis
 - Investment scenario simulation based on prediction results
 
+---
+
 ## Highlighted Visualizations
+
 **Feature Importance:**
 ![Feature Importance](Notebooks/feature_importance.png)
 
@@ -62,28 +70,59 @@ Key results include:
 **Volatility Trend (Monthly):**
 ![Volatility Trend](Notebooks/volatility_trend.png)
 
+---
+
 ## Results & Key Insights
-- **Gradient Boosting** with random split performed best (59.03% accuracy)
-- **Chronological split** provided more realistic testing of future stock predictions
-- **MA Ratio, Volatility, and RSI** were the most important features
-- **Day-of-week** variable had negligible effect
-- Scenario simulation showed high potential return with modest accuracy
+
+### Overall Model Performance
+
+| Test Accuracy (%)           | Decision Tree | Random Forest | Gradient Boosting |
+|----------------------------|---------------|----------------|-------------------|
+| Random split               | 56.33         | 55.96          | **59.03**         |
+| Random split + tuning      | **57.54**     | 57.26          | 58.84             |
+| Chronological split        | 49.53         | 54.38          | 55.95             |
+| Chronological + tuning     | 57.17         | 56.61          | 57.08             |
+
+### Class 1 Accuracy (Up Opportunity)
+
+| Class 1 Accuracy (%)       | Decision Tree | Random Forest | Gradient Boosting |
+|----------------------------|---------------|----------------|-------------------|
+| Random split               | 54            | 42             | **36**            |
+| Random split + tuning      | 25            | **43**         | 36                |
+| Chronological split        | **56**        | 44             | 43                |
+| Chronological + tuning     | 16            | **52**         | 7                 |
+
+- **Gradient Boosting** with random split gave the **highest overall test accuracy (59.03%)**
+- However, **Random Forest** with chronological split + tuning achieved better **Class 1 detection** (52%)
+- **Feature importance** revealed MA_Ratio, Volatility, and RSI as dominant predictors
+- **Day-of-week** variable contributed little value
+- Scenario simulation (targeting Class 1 days) suggested **strong upside potential with low risk exposure**
+- Final model serves as a conservative signal generator: prefer **avoiding poor trades** over chasing risky wins
+
+---
 
 ## Key Deliverables
 - Jupyter Notebook: `Notebooks/Stock_Market_Signal_Prediction_Team_12B.ipynb`
 - Final project report (PDF)
 - Final project presentation (PDF)
 
+---
+
 ## What I Learned
-- Tree-based models are effective for technical signal classification but have clear limitations in financial time-series
-- Predicting stock returns using classification is inherently difficult due to market noise, data biases, and unpredictability
-- Models like Gradient Boosting are not robust for capturing temporal patterns — incorporating time-aware models like LSTM may lead to better results
-- Broader variables (macroeconomic, fundamental, and news data) are important but were not included in this version
+- Tree-based models can identify interpretable patterns in technical indicators but may not fully capture market dynamics
+- The cost of false positives (bad trades) in finance is higher than missing opportunities — model precision matters more than recall
+- Gradual improvements in model performance come from careful feature engineering and strategic evaluation design
+- Classification of stock returns has limits — price direction alone doesn’t guarantee profit potential
+
+---
 
 ## What I Plan to Improve
-- Extend analysis to other stocks beyond TSLA to test generalizability
-- Incorporate macroeconomic variables and financial ratios for fundamental insights
-- Experiment with LSTM and RNN for sequential pattern recognition in time-series
+- Extend model to other stocks and broader asset classes
+- Introduce economic indicators and sentiment-based signals (e.g., VIX, macro data, social sentiment)
+- Test sequential models (e.g., LSTM, Temporal CNNs) that can capture price momentum and reversal patterns
+- Simulate alternative trading strategies (e.g., risk-adjusted return, Sharpe ratio optimization)
+
+---
 
 ## About Me
 Hi, I’m Vy Nguyen and I’m currently pursuing my MS in Business Analytics at UC Irvine. I’m passionate about data analytics in Finance and Investment. Connect with me on [LinkedIn](https://www.linkedin.com/in/vy-ngoc-lan-nguyen).
