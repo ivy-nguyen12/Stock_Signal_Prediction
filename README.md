@@ -72,6 +72,7 @@ Key results include:
 ## Key Deliverables
 - Jupyter Notebook: `Notebooks/Stock_Market_Signal_Prediction_Team_12B.ipynb`
 - Final project report (PDF)
+- Final project presentation (PDF)
 
 ## What I Learned
 - Tree-based models are effective for technical signal classification but have clear limitations in financial time-series
