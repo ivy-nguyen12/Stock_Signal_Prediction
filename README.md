@@ -92,8 +92,8 @@ Key results include:
 | Chronological split        | **56**        | 44             | 43                |
 | Chronological + tuning     | 16            | **52**         | 7                 |
 
-- **Gradient Boosting** with random split gave the **highest overall test accuracy (59.03%)**
-- However, **Random Forest** with chronological split + tuning achieved better **Class 1 detection** (52%)
+- **Gradient Boosting** with random split gave the highest overall test accuracy (59.03%)
+- However, **Random Forest** with chronological split + tuning achieved better Class 1 detection (52%)
 - **Feature importance** revealed MA_Ratio, Volatility, and RSI as dominant predictors
 - **Day-of-week** variable contributed little value
 - Scenario simulation (targeting Class 1 days) suggested **strong upside potential with low risk exposure**
