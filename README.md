@@ -12,10 +12,22 @@ Key results include:
 - A scenario simulation projected a 393% annual return under specific trading assumptions
 
 ## Dataset
-- **Source:** yfinance Python library
-- **Scope:** 14+ years of Tesla (TSLA) daily data (2009–2023)
-- **Size:** 3,632 records (reduced to 3,577 after preprocessing)
-- **Key Features:** MA Ratio, RSI, Volatility, Volume Change, Day of Week, and Signal (target)
+- **Source:** yfinance Python library  
+- **Scope:** 14+ years of Tesla (TSLA) daily data (2009–2023)  
+- **Size:** 3,632 records (reduced to 3,577 after preprocessing)  
+- **Key Features:** MA Ratio, RSI, Volatility, Volume Change, Day of Week, and Signal (target)  
+
+### 📋 Data Dictionary
+
+| Feature           | Definition                                                                 | Data Type     |
+|-------------------|----------------------------------------------------------------------------|---------------|
+| Daily_Returns     | % Daily change in stock price                                              | Continuous (%)|
+| Volume_Change     | Change in volume as a % of the 10-day rolling average                      | Continuous (%)|
+| Volatility        | Standard deviation of daily returns over a 10-day window                   | Continuous    |
+| MA_Ratio          | Ratio of 10-day to 50-day moving averages on price                         | Continuous    |
+| RSI (Relative Strength Index) | Measures the magnitude of price gains vs losses over 14-day window    | Continuous    |
+| Day_of_Week       | Day extracted from date index, converted to dummy variables                | Categorical   |
+
 
 ## Tools & Methodology Overview
 **Languages and Libraries:** Python (pandas, numpy, scikit-learn, matplotlib, seaborn)
